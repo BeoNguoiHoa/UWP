@@ -1,0 +1,67 @@
+﻿<Page
+    x:Class="App1.Pages.DemoFetchApi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1.Pages"
+    xmlns:models="using:App1.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <RelativePanel  MinHeight="300" Grid.Row="0" >
+            <Rectangle x:Name="RedRectangle" 
+                           Fill="#FFB20837"
+                           MinWidth="1620" 
+                           MinHeight="18"
+                           RelativePanel.AlignTopWithPanel="True"/>
+            <RelativePanel x:Name="rp1" Background="#FFB20837" Margin="40,0,0,0" Height="150" Width="120">
+                <Image x:Name="p1" Width="80" Margin="20,15,0,0" Source="https://jollibee.com.vn/images/logo-footer.png" RelativePanel.AlignLeftWithPanel="True"/>
+                <TextBlock x:Name="p2" Text="FAST FOODS" RelativePanel.Below="p1" FontSize="18" FontFamily="Malgun Gothic" FontWeight="Bold" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <TextBlock Text="Restourents" RelativePanel.Below="p2" FontSize="16" FontFamily="Malgun Gothic" FontWeight="Bold" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+            </RelativePanel>
+
+            <RelativePanel x:Name="rp2"  RelativePanel.RightOf="rp1">
+                <TextBlock x:Name="text1" Text="C# UI DESIGN BY Amogus" FontSize="18" Margin="10,20,0,0" />
+            </RelativePanel>
+
+            <RelativePanel x:Name="rp3" RelativePanel.RightOf="rp2">
+                <Image x:Name="anh1" Width="40" Source="https://freepikpsd.com/media/2019/10/facebook-round-icon-png-Transparent-Images.png" Margin="30,30,0,0"/>
+                <Image x:Name="anh2" RelativePanel.RightOf="anh1" Width="40" Source="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png" Margin="14,30,0,0"/>
+                <Image x:Name="anh3" RelativePanel.RightOf="anh2" Width="40" Source="https://www.pikpng.com/pngl/b/252-2524974_icon-2083456-ig-facebook-twitter-instagram-circle-icons.png" Margin="14,30,0,0"/>
+            </RelativePanel>
+
+            <RelativePanel x:Name="rp4" RelativePanel.AlignRightWithPanel="True">
+                <Image x:Name="anh4" Width="25" Source="Assets/noti.png" Margin="0,30,17,0"/>
+                <Image x:Name="anh5" RelativePanel.RightOf="anh4" Width="25" Source="Assets/settings.png" Margin="0,30,19,0"/>
+                <Image x:Name="anh6" RelativePanel.RightOf="anh5" Width="20"  Source="Assets/shutdown.png" Margin="0,33,0,0"/>
+            </RelativePanel>
+
+        </RelativePanel>
+        <GridView x:Name="MNItems" Margin="10,200,50,10" >
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="models:Item">
+                    <Grid Background="LightGray" AutomationProperties.Name = '{x:Bind id}' Width = '500' Margin="20">
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width = '*'/>
+                            <ColumnDefinition Width = 'auto'/>
+                            
+                        </Grid.ColumnDefinitions>
+
+                       
+                        <RelativePanel Margin="50,60,50,50">
+                            <TextBlock  x:Name="burger" Text = '{x:Bind name}' FontSize="16" FontWeight="Bold" Margin="30,30,0,0"/>
+                            <Image x:Name="bg1" Source = '{x:Bind image}' Margin="0,120,0,0" />
+                            <TextBlock x:Name="LoremThing" Text = '{x:Bind description}' FontSize="25" RelativePanel.Below="bg1" Margin="35,20,0,0" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="dollar" Text = "$" FontSize="46" FontWeight="Bold" Foreground="Blue" FontFamily="century gothic" RelativePanel.Below="LoremThing" Margin="20,100,0,20" />
+                            <TextBlock x:Name="price" Text = '{x:Bind price}' FontSize="40" FontWeight="Bold" Foreground="Blue" FontFamily="century gothic" RelativePanel.Below="LoremThing" Margin="50,100,0,20" />
+                            <Button Content="Read More" Width="160" Height="40" FontSize="20" FontWeight="SemiBold" Foreground="White" Background="Yellow" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,30"/>
+                        </RelativePanel>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+
+</Page>
